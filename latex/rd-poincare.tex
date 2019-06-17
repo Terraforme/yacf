@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{arrows}
+\usepackage{caption, subcaption}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems}
+\usepackage{algorithm, algorithmic}
+\usepackage{hyperref}
+
+\hypersetup
+{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=magenta,      
+  urlcolor=cyan,
+}
+
+\setlength\parindent{0pt}
+%\setlength\parskip{1em}
+
+\usepackage{mathrsfs, mathtools}
+\usepackage{amsthm, amsmath, amssymb}
+
+\definecolor{aqua}{rgb}{0.0, 1.0, 1.0}
+\definecolor{aquamarine}{rgb}{0.5, 1.0, 0.83}
+\definecolor{alizarin}{rgb}{0.82, 0.1, 0.26}
+\definecolor{carmine}{rgb}{0.59, 0.0, 0.09}
+\definecolor{blue(pigment)}{rgb}{0.2, 0.2, 0.6}
+
+\newcommand{\propname}{Proposition}
+\newcommand{\coroname}{Corollary}
+\newcommand{\lemname}{Lemma}
+\newcommand{\exmpname}{Example}
+\newcommand{\remname}{Remark}
+\newcommand{\exrname}{Exercise}
+\newcommand{\questname}{Question}
+
+\newtheorem{prop}{\propname}
+\newtheorem{coro}[prop]{\coroname}
+\newtheorem{lem}[prop]{\lemname}
+\theoremstyle{definition}
+\newtheorem{exmp}[prop]{\exmpname}
+\theoremstyle{remark}
+\newtheorem{rem}[prop]{\remname}
+\newtheorem{exr}[prop]{\exrname}
+\newtheorem{quest}[prop]{\questname}
+
+
+
+% definitions
+\newcounter{cdefn}[prop]
+\newenvironment{defn}[1][]
+  {\vspace{1em}\refstepcounter{prop} 
+  \begin{minipage}[t]{\widthof{\textbf{Definition theprop}}-20pt}
+  \fcolorbox{white}{black}{\color{white}\textbf{Definition \theprop}}
+  \def\temp{#1}\ifx\temp\empty\end{minipage}\hfill\begin{minipage}[t]
+  {\columnwidth-\widthof{\textbf{Definition \theprop}}-25pt}
+  %\else\end{minipage} \hfill\begin{minipage}[t]
+  %{\columnwidth-\widthof{\textbf{Definition \thechapter.\thecdefn}}-25pt}
+  %\textbf{#1.}\fi}
+  \else%\newline\textbf{(#1)}
+  \end{minipage}\hfill
+  \begin{minipage}[t]
+  {\columnwidth-\widthof{\textbf{Definition \theprop}}-25pt}\fi}
+  {\end{minipage}\vspace{1em}}
+
+%% ABOUT THEOREMS
+
+\newtcolorbox{thm}[2][]{
+  lower separated = false,
+  colback=white,
+  colframe=black,
+  arc=0pt,
+  outer arc=0pt,
+  fonttitle=\bfseries,
+  colbacktitle=black,
+  coltitle=white,
+  enhanced,
+  attach boxed title to top left={yshift=-.1in,xshift=.15in},
+  boxed title style={boxrule=0pt,colframe=white,outer arc=0pt, arc=0pt},
+  title=\refstepcounter{prop}Theorem \theprop. #2,#1
+}
+
+\title{\textbf{Yet Another Connected Four}}
+\date{}
+\author{Victor Boone, Bastien Durain}
+
+\begin{document}
+
+\maketitle
+
+\end{document}
